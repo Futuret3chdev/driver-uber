@@ -1,34 +1,34 @@
-# T3x Shift — Uber
+# T3x Shift — Uber (Test / Trial)
 
 **MT ECO SYSTEM**  
 Developed by **Futuret3ch**, **T3x** and **MemeTorrent**.
 
 Cloned from [driver-panda](https://github.com/Futuret3chdev/driver-panda) for Uber-only trial.
 
-Live trial intended for Uber Driver API (limited access / developer account).
+**Test Client ID (hard-coded in auth endpoints):** `iQoNkfoy4lmb5NDMavqhL28aqC9gJH-q`
 
-**Client ID:** `iQoNkfoy4lmb5NDMavqhL28aqC9gJH-q`
+Uber Developer Dashboard app (named without "Uber" substring, created 24/9/2026).
 
 **Not affiliated with Uber.**
 
-## Setup for Uber API (trial)
+## Setup for Uber API (test only)
 
-1. In the Uber Developer Dashboard for this app, set a Redirect URI to your Vercel URL + `/api/auth/callback` (e.g. `https://driver-uber.vercel.app/api/auth/callback`).
-2. Select scopes: `partner.accounts`, `partner.trips`, `partner.payments` (available for the developer account in limited access).
-3. Set environment variables on Vercel:
-   - `UBER_CLIENT_ID=iQoNkfoy4lmb5NDMavqhL28aqC9gJH-q`
-   - `UBER_CLIENT_SECRET=<your-client-secret>`
-   - `UBER_REDIRECT_URI=https://your-domain.vercel.app/api/auth/callback`
+1. In the Uber Developer Dashboard, add Redirect URI: `https://YOUR_VERCEL_DOMAIN/api/auth/callback`
+2. Scopes for limited access (developer account): `partner.accounts`, `partner.trips`, `partner.payments`
+3. Set **only** this environment variable on Vercel (or .env.local):
+   - `UBER_CLIENT_SECRET=<paste the Client Secret from the dashboard here>`
+   
+   Client ID is already hard-coded for this test. Access Token TTL = 30 days.
 
-Access Token TTL is 30 days as configured.
+The actual Client Secret string was not included in the chat messages — only the metadata. Paste it into the env var.
 
 ## What it does
 
-- Focused on Uber only for trial
+- Uber-only for this trial
 - Go live opens the Uber Driver app
-- Optional OAuth to pull profile / trips / payments when authorized (developer account)
-- GPS drive listener, trip log, earnings summary (same as original)
-- Local storage for offline use
+- OAuth login/callback for pulling profile/trips/payments (developer account only in limited access)
+- GPS drive listener, trip log, earnings summary
+- Local storage
 
 ## Local
 
