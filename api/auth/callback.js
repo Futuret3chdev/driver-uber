@@ -1,7 +1,8 @@
-// Exchange code for access token (TEST ONLY — hard-coded credentials for trial)
+// Exchange code for access token (TEST ONLY — hard-coded credentials and redirect)
 // WARNING: Do not use this approach in production. Secret is intentionally not hard-coded because the value was never provided in chat.
 
 const UBER_CLIENT_ID = 'iQoNkfoy4lmb5NDMavqhL28aqC9gJH-q';
+const REDIRECT_URI = 'https://driver-uber-green.vercel.app/api/auth/callback';
 // Client Secret was not included in any message. Paste it here only for a private test if you want:
 // const UBER_CLIENT_SECRET = 'PASTE_SECRET_HERE_FOR_TEST';
 
@@ -11,7 +12,7 @@ export default async function handler(req, res) {
 
   const clientId = UBER_CLIENT_ID;
   const clientSecret = process.env.UBER_CLIENT_SECRET; // still prefer env; hardcode only if you paste the real value above
-  const redirectUri = process.env.UBER_REDIRECT_URI || `${req.headers['x-forwarded-proto'] || 'https'}://${req.headers.host}/api/auth/callback`;
+  const redirectUri = REDIRECT_URI;
 
   if (!clientSecret) {
     return res.status(500).json({
