@@ -5,7 +5,9 @@ Developed by **Futuret3ch**, **T3x** and **MemeTorrent**.
 
 Cloned from [driver-panda](https://github.com/Futuret3chdev/driver-panda) for Uber-only trial.
 
-**Test Client ID (hard-coded in auth endpoints):** `iQoNkfoy4lmb5NDMavqhL28aqC9gJH-q`
+**Test Client ID (hard-coded):** `iQoNkfoy4lmb5NDMavqhL28aqC9gJH-q`
+
+**Callback domain (hard-coded):** `https://driver-uber-green.vercel.app/api/auth/callback`
 
 Uber Developer Dashboard app (named without "Uber" substring, created 24/9/2026).
 
@@ -13,12 +15,12 @@ Uber Developer Dashboard app (named without "Uber" substring, created 24/9/2026)
 
 ## Setup for Uber API (test only)
 
-1. In the Uber Developer Dashboard, add Redirect URI: `https://YOUR_VERCEL_DOMAIN/api/auth/callback`
+1. In the Uber Developer Dashboard, add this exact Redirect URI: `https://driver-uber-green.vercel.app/api/auth/callback`
 2. Scopes for limited access (developer account): `partner.accounts`, `partner.trips`, `partner.payments`
-3. Set **only** this environment variable on Vercel (or .env.local):
+3. Set **only** this environment variable on Vercel:
    - `UBER_CLIENT_SECRET=<paste the Client Secret from the dashboard here>`
    
-   Client ID is already hard-coded for this test. Access Token TTL = 30 days.
+   Client ID and Redirect URI are already hard-coded for this test. Access Token TTL = 30 days.
 
 The actual Client Secret string was not included in the chat messages — only the metadata. Paste it into the env var.
 
